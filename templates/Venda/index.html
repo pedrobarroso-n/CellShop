@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/indexVenda.css')}}">
+</head>
+<body>
+  <form method="POST" action="/processar">
+    <label>Escolha uma categoria de produto:</label>
+    <select name="categoria" id="categoria" required="required">
+      <option value="">Escolha uma categoria</option>
+      <option value="pelicula">Película</option>
+      <option value="capa">Capa</option>
+      <option value="carregador">Carregador</option>
+      <option value="cabos_adaptador">Cabos e Adaptadores</option>
+      <option value="fone">Fone</option>
+    </select>
+  </form>
+
+  <div id="pelicula">
+    <form action="{{url_for('vendaPelicula')}}" method="post">
+      <label>Escolha o produto:</label>
+      <select>
+        {{% for now in dados[0] %}}
+        <option value="{{now[0]}}">{{now[1]}}</option>
+        {{% endfor %}}
+      </select>
+    </form>
+  </div>
+
+  <div id="capa">
+    <form action="{{url_for('vendaCapa')}}" method="post">
+      <div class="nome">
+        <label for="nome">Nome</label><br>
+        <input type="text" name="nome">
+      </div>
+
+      <input type="submit" value="Adicionar">
+    </form>
+  </div>
+
+  <div id="carregador">
+    Div do form de carregador
+  </div>
+
+  <div id="cabos_adaptador">
+    Div do form de cabos_adaptador
+  </div>
+
+  <div id="fone">
+    Div do form de fone
+  </div>
+
+  <!-- Linkando o arquivo JavaScript externo -->
+  <script src="{{ url_for('static', filename='js/venda.js') }}"></script>
+
+</body>
+</html>

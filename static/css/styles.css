@@ -1,0 +1,85 @@
+:root {
+  --cor-principal: #FFFFFF;
+  --cor-fonte: #000000;
+  --cor-sombra: #000000;
+  --fonte-principal: Verdana, sans-serif;
+}
+
+.cabecalho {
+  height: 80px;
+  width: 100%;
+  padding: 0px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--cor-principal);
+  box-shadow: -2px -2px 8px var(--cor-sombra);
+}
+
+.cabecalho__logo{
+  height: 100%;
+}
+
+.cabecalho__links {
+  display: flex;
+  flex-direction: row;
+  gap: 0px 50px;
+  font-family: var(--fonte-principal);
+  color: var(--cor-fonte);
+}
+
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding: 5vw;
+}
+
+.produtos__item {
+  height: 350px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: aquamarine;
+  font-family: var(--fonte-principal);
+}
+
+.produtos__item h2 {
+  font-size: 1.1em;
+}
+
+.produtos__item img {
+  padding: 80px 0px;
+  background-color: var(--cor-principal);
+}
+
+.produtos__item__dados {
+  height: 60px;
+  background-color: gray;
+  text-indent: 12px;
+  font-family: var(--fonte-principal);
+  font-weight: 200;
+  font-size: 0.9em;
+}
+
+.produtos__item button {
+  padding: 5px 0px;
+}
+
+.rodape {
+  height: 80px;
+  width: 100%;
+  padding: 0px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--cor-principal);
+  box-shadow: 2px 2px 8px var(--cor-sombra);
+}
+
+.rodape p {
+  font-family: var(--fonte-principal);
+  font-size: 0.9em;
+  font-weight: 200;
+}

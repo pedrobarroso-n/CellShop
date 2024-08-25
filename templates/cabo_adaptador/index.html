@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" >
+  <title>Cell Shop</title>
+</head>
+<body>
+  <header class="cabecalho">
+     <img class="cabecalho__logo" src="{{url_for('static', filename='img/logo.png')}}" alt="Logo da Cell Shop" />
+    <ul class="cabecalho__links">
+      <li><a href="{{url_for('index')}}">Home</a>
+      <li><a href="{{url_for('pelicula')}}">Peliculas</a>
+      <li><a href="{{url_for('capa')}}">Capas</a>
+      <li><a href="{{url_for('fone')}}">Fones</a>
+      <li><a href="{{url_for('carregador')}}">Carregadores</a>
+      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a> 
+    </ul>
+  </header>
+  <main class="produtos">
+    {% for row in cabo_adaptador %}
+      <div class="produtos__item">
+        <img src="#" alt="imagem">
+        <h2>{{row[1]}}</h2>
+        <div class="produtos__item__dados">
+          <p>Entrada: {{row[2]}}</p>
+          <p>Saida: {{row[3]}}</p>
+        </div>
+        <button>preco</button>
+      </div>
+    {% endfor %}
+  </main>
+  <footer class="rodape">
+    <p>Todos os direitos reservados á Cell Tec @2024</p>
+    <img class="cabecalho__logo" src="{{url_for('static', filename='img/logo.png')}}" alt="Logo da Cell Shop" />
+    <p>Agradecemos á preferencia!</p>
+  </footer>
+</body>
+</html>
