@@ -78,7 +78,7 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 
 ## Contribuintes
 
-FrontEnd: [@pedrobarroso-n](https://github.com/pedrobarroso-n)
+FrontEnd: [@pedrobarroso-n](https://github.com/GleisonPS)
 
 ## Licença
 
