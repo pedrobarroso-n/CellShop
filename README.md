@@ -78,7 +78,7 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 
 ## Contribuintes
 
-FrontEnd: [@pedrobarroso-n](https://github.com/GleisonPS)
+BackEnd: [@GleisonPS](https://github.com/GleisonPS)
 
 ## Licença
 
@@ -86,5 +86,5 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## Contato
 
-Para perguntas ou suporte, entre em contato pelo Discord: toupeira21.
+Para perguntas ou suporte, entre em contato pelo Linkedin: [Pedro Barroso](https://www.linkedin.com/in/pedrobarroso-n/).
 
