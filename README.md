@@ -21,7 +21,7 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/Cell_Shop.git
+   git clone https://github.com/seu-usuario/CellShop.git
    cd Cell_Shop
    ```
 
@@ -65,20 +65,21 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 
 ## Estrutura do Projeto
 
-- **app/**: Contém o código da aplicação Flask.
-  - **static/**: Arquivos estáticos (CSS, JavaScript, imagens).
-  - **templates/**: Arquivos de template HTML.
-  - **routes/**: Módulos de rota.
-  - **models/**: Definições de modelos de dados.
-  - **forms/**: Formulários da aplicação.
-- **migrations/**: Scripts de migração do banco de dados.
-- **tests/**: Testes da aplicação.
-- **config.py**: Configurações da aplicação.
-- **requirements.txt**: Lista de dependências do projeto.
+- **static/**: Arquivos estáticos (pecularidade do framework).
+   - **css/** - Arquivos .css
+   - **img/** - Arquivos .png .jps .jpge
+   - **js/** - Arquivos .js
+- **templates/**: Arquivos de template HTML.
+   - **pastas/** - 6 ao todo, cada uma representa um tipo de produto.
+   - **index.html** - Hmtl principal, página home.
+- **main.py**: Controle e gerencia do banco de dados.
+- **bd.py**: Estrutura do banco de dados.
+- **Db.sql**: Banco de dados do projeto.
 
-## Contribuintes
+## Contribuições
 
-BackEnd: [@GleisonPS](https://github.com/GleisonPS)
+1. [@GleisonPS](https://github.com/GleisonPS)
+2. [@Ranykelle21](https://github.com/Ranykelle21)
 
 ## Licença
 
