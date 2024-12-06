@@ -1,7 +1,6 @@
 import sqlite3
 
-from flask import Flask, render_template
-from flask.helpers import redirect,request
+from flask import Flask, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
