@@ -84,8 +84,3 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## Contato
-
-Para perguntas ou suporte, entre em contato pelo Linkedin: [Pedro Barroso](https://www.linkedin.com/in/pedrobarroso-n/).
-
