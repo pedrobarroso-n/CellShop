@@ -4,56 +4,160 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="{{url_for('static', filename='css/indexVenda.css')}}">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+  <title>Cell Tec | Vendas</title>
+  <style> div { display:none; } </style>
 </head>
 <body>
-  <form method="POST" action="/processar">
-    <label>Escolha uma categoria de produto:</label>
-    <select name="categoria" id="categoria" required="required">
-      <option value="">Escolha uma categoria</option>
-      <option value="pelicula">Película</option>
-      <option value="capa">Capa</option>
-      <option value="carregador">Carregador</option>
-      <option value="cabos_adaptador">Cabos e Adaptadores</option>
-      <option value="fone">Fone</option>
-    </select>
-  </form>
-
-  <div id="pelicula">
-    <form action="{{url_for('vendaPelicula')}}" method="post">
-      <label>Escolha o produto:</label>
-      <select>
-        {{% for now in dados[0] %}}
-        <option value="{{now[0]}}">{{now[1]}}</option>
-        {{% endfor %}}
+  <header class="cabecalho">
+    <img class="cabecalho__logo" src="{{url_for('static', filename='img/logo.png')}}" alt="Logo da Cell Shop" />
+    <ul class="cabecalho__links">
+      <li><a href="{{url_for('index')}}">Home</a>
+      <li><a href="{{url_for('pelicula')}}">Peliculas</a>
+      <li><a href="{{url_for('capa')}}">Capas</a>
+      <li><a href="{{url_for('fone')}}">Fones</a>
+      <li><a href="{{url_for('carregador')}}">Carregadores</a>
+      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a> 
+      <li><a href="{{url_for('Vendas')}}" style="color: var(--cor-quartenaria);">Vendas</a> 
+    </ul>
+  </header>
+  
+  <section class="formulario">
+    <form method="POST" action="/processar" class="formulario__escolha">
+      <label for="categoria">Categoria:</label> <br>
+      <select name="categoria" id="categoria" required="required">
+        <option value="">Escolha uma categoria</option>
+        <option value="pelicula">Película</option>
+        <option value="capa">Capa</option>
+        <option value="carregador">Carregador</option>
+        <option value="cabos_adaptador">Cabos e Adaptadores</option>
+        <option value="fone">Fone</option>
       </select>
     </form>
-  </div>
 
-  <div id="capa">
-    <form action="{{url_for('vendaCapa')}}" method="post">
-      <div class="nome">
-        <label for="nome">Nome</label><br>
-        <input type="text" name="nome">
-      </div>
+    <br>
+    
+    <div id="pelicula">
+      <form action="{{url_for('Venda_pelicula')}}" method="post" class="formulario__produto">
+        <label>Escolha o Modelo da pelicula:</label> <br>
+        <select name="Produto" id="ProdutoPelicula" required="required" >
+          <option value="#"></option>
+          {% for now in dados[0] %}
+            <option value="{{now}}">{{now[1]}}</option>
+          <p>{{now[5]}}</p>
+          {% endfor %}
+        </select>
 
-      <input type="submit" value="Adicionar">
-    </form>
-  </div>
+         <br><br>
+  
+        <div id="MostrarInfoPelicula" >
+          <input type="hidden" name="dados">
+          <label for="Qtd">Quantidade</label> <br>
+          <input type="number" name="qtd" required>
+          <input type="submit" value="Comprar">
+        </div>
+      </form>
+    </div>
+  
+    <div id="capa">
+      <form action="" method="post" class="formulario__produto">
+        <label>Escolha o Modelo da Capinha:</label>  <br>
+        <select name="Produto" id="ProdutoCapa" required="required" >
+          <option value="#"></option>
+          {% for now in dados[0] %}
+            <option value="{{now}}">{{now[1]}}</option>
+          <p>{{now[5]}}</p>
+          {% endfor %}
+        </select>
 
-  <div id="carregador">
-    Div do form de carregador
-  </div>
+         <br><br>
+        
+        <div id="MostrarInfoCapa" class="mostar-infos">
+          <input type="hidden" name="dados">
+          <label for="Qtd">Quantidade</label> <br>
+          <input type="number" name="qtd" required>
+          <input type="submit" value="Comprar">
+        </div>
+      </form>
+    </div>
+  
+    <div id="carregador"  class="mostar-infos"">
+      <form action="" method="post" class="formulario__produto">
+        <label>Escolha o Modelo de Carregadores:</label> <br>
+        <select name="Produto" id="ProdutoCarregador" required="required" >
+          <option value="#"></option>
+          {% for now in dados[0] %}
+            <option value="{{now}}">{{now[1]}}</option>
+          <p>{{now[5]}}</p>
+          {% endfor %}
+        </select>
 
-  <div id="cabos_adaptador">
-    Div do form de cabos_adaptador
-  </div>
+         <br><br>
+  
+        <div id="MostrarInfoCarregador" class="mostar-infos">
+          <input type="hidden" name="dados">
+          <label for="Qtd">Quantidade</label> <br>
+          <input type="number" name="qtd" required>
+          <input type="submit" value="Comprar">
+        </div>
+      </form>
+    </div>
+  
+    <div id="cabos_adaptador"  class="mostar-infos">
+      <form action="" method="post" class="formulario__produto">
+        <label>Escolha o Modelo de Cabos adaptadores:</label> <br>
+        <select name="Produto" id="ProdutoCabos_adaptador" required="required" >
+          <option value="#"></option>
+          {% for now in dados[0] %}
+            <option value="{{now}}">{{now[1]}}</option>
+          <p>{{now[5]}}</p>
+          {% endfor %}
+        </select>
 
-  <div id="fone">
-    Div do form de fone
-  </div>
+         <br><br>
+        
+        <div id="MostrarInfoCabos_adaptador" class="mostar-infos">
+          <input type="hidden" name="dados">
+          <label for="Qtd">Quantidade</label> <br>
+          <input type="number" name="qtd" required>
+          <input type="submit" value="Comprar">
+        </div>
+      </form>
+    </div>
+  
+    <div id="fone"  class="mostar-infos">
+      <form action="" method="post" class="formulario__produto">
+        <label>Escolha o Modelo de Fones:</label> <br>
+        <select name="Produto" id="ProdutoFone" required="required" >
+          <option value="#"></option>
+          {% for now in dados[0] %}
+            <option value="{{now}}">{{now[1]}}</option>
+          <p>{{now[5]}}</p>
+          {% endfor %}
+        </select>
 
+        <br><br>
+  
+        <div id="MostrarInfoFone" class="mostar-infos">
+          <input type="hidden" name="dados">
+          <label for="Qtd">Quantidade</label> <br>
+          <input type="number" name="qtd" required>
+          <input type="submit" value="Comprar">
+        </div>
+      </form>
+    </div>
+
+    <img class="formulario__imagem" src="{{url_for('static', filename='/img/vendas/vendas.png')}}" alt="imagem ilustrativa de um carrinho de compras">
+  </section>
+
+  <footer class="rodape">
+    <p>Todos os direitos reservados á Cell Tec @2024</p>
+    <img class="cabecalho__logo" src="{{url_for('static', filename='img/logo.png')}}" alt="Logo da Cell Shop" />
+    <p>Agradecemos á preferencia!</p>
+  </footer>
+  
   <!-- Linkando o arquivo JavaScript externo -->
   <script src="{{ url_for('static', filename='js/venda.js') }}"></script>
 

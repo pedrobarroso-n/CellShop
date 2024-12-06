@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" >
-  <title>Cell Shop</title>
+  <title>Cell Tec</title>
 </head>
 <body>
   <header class="cabecalho">
@@ -16,19 +17,20 @@
       <li><a href="{{url_for('pelicula')}}">Peliculas</a>
       <li><a href="{{url_for('capa')}}">Capas</a>
       <li><a href="{{url_for('fone')}}">Fones</a>
-      <li><a href="{{url_for('carregador')}}">Carregadores</a>
+      <li><a href="{{url_for('carregador')}}" style="color: var(--cor-quartenaria);">Carregadores</a>
       <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a> 
+      <li><a href="{{url_for('Vendas')}}">Vendas</a> 
     </ul>
   </header>
   <main class="produtos">
     {% for row in carregador %}
       <div class="produtos__item">
-        <img src="#" alt="imagem">
+        <img src=static/img/{{row[3]}}  alt="imagem">
         <h2>{{row[1]}}</h2>
         <div class="produtos__item__dados">
           <p>Cor: {{row[2]}}</p>
         </div>
-        <button>preco</button>
+        <button>{{row[4]}}</button>
       </div>
     {% endfor %}
   </main>

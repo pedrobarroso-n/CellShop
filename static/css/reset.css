@@ -11,9 +11,10 @@ html {
 
 a {
   text-decoration: none;
+  color: #000000;
 }
 
-ul {
+ul, li{
   list-style: none;
 }
 
