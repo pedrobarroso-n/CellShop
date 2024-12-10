@@ -7,12 +7,14 @@
   <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo/logo.png')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-  <title>Cell Tec | Minhas Vendas</title>
+  <title>CellShop | Vendas</title>
   <style> div { display:none; } </style>
 </head>
 <body>
   <header class="cabecalho">
-    <img class="cabecalho__logo" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    <a href="{{url_for('index')}}" class="cabecalho__logo">
+      <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    </a>
     <ul class="cabecalho__links">
       <li><a href="{{url_for('index')}}">Home</a>
       <li><a href="{{url_for('pelicula')}}">Peliculas</a>
@@ -149,12 +151,14 @@
       </form>
     </div>
 
-    <img class="formulario__imagem" src="{{url_for('static', filename='/img/banners/vendas.png')}}" alt="imagem ilustrativa de um carrinho de compras">
+    <img class="formulario__imagem" src="{{url_for('static', filename='/img/banners/banner-back-vendas.png')}}" alt="imagem ilustrativa de um carrinho de compras">
   </section>
 
   <footer class="rodape">
     <p>Todos os direitos reservados á CellShop @2024</p>
-    <img class="cabecalho__logo" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    <a href="{{url_for('index')}}" class="cabecalho__logo">
+      <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    </a>
     <p>Agradecemos á preferencia!</p>
   </footer>
   

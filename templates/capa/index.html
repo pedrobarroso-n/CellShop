@@ -7,11 +7,13 @@
   <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo/logo.png')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" >
-  <title>Cell Tec</title>
+  <title>CellShop</title>
 </head>
 <body>
   <header class="cabecalho">
-     <img class="cabecalho__logo" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    <a href="{{url_for('index')}}" class="cabecalho__logo">
+      <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    </a>
     <ul class="cabecalho__links">
       <li><a href="{{url_for('index')}}">Home</a>
       <li><a href="{{url_for('pelicula')}}">Peliculas</a>
@@ -37,7 +39,9 @@
   </main>
   <footer class="rodape">
     <p>Todos os direitos reservados á CellShop @2024</p>
-    <img class="cabecalho__logo" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    <a href="{{url_for('index')}}" class="cabecalho__logo">
+      <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    </a>
     <p>Agradecemos á preferencia!</p>
   </footer>
 </body>
