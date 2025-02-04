@@ -35,7 +35,8 @@ def conexao():
     conn.close()
 
 def test_campos_not_null(conexao):
-    """Verifica se todos os campos NOT NULL da tabela 'fone' têm dados válidos (não nulos)."""
+    """Verifica se todos os campos NOT NULL da tabela 'fone' têm dados válidos (não nulos) e salva os resultados."""
+    resultado_teste = []  # Lista para armazenar os resultados do teste
     cursor = conexao.cursor()
 
     # Recupera todos os itens da tabela 'fone'
@@ -46,12 +47,25 @@ def test_campos_not_null(conexao):
     for item in itens_fone:
         idFone, modelo, tipo, marca, img, preco, qtd = item
 
-        # Verifica se os campos 'modelo', 'tipo', 'marca', 'preco', 'qtd' não são NULL
-        assert modelo is not None, "Erro: 'modelo' é NULL"
-        assert tipo is not None, "Erro: 'tipo' é NULL"
-        assert marca is not None, "Erro: 'marca' é NULL"
-        assert preco is not None, "Erro: 'preco' é NULL"
-        assert qtd is not None, "Erro: 'qtd' é NULL"
+        modelo_check = modelo is not None
+        tipo_check = tipo is not None
+        marca_check = marca is not None
+        preco_check = preco is not None
+        qtd_check = qtd is not None
 
-        # O campo 'img' não é NOT NULL, então não precisa ser verificado
-        # assert img is not None  # Este campo pode ser NULL, caso necessário, ignore esta verificação
+        resultado_teste.append(f"ID {idFone} - Modelo: {'PASS' if modelo_check else 'FAIL'}")
+        resultado_teste.append(f"ID {idFone} - Tipo: {'PASS' if tipo_check else 'FAIL'}")
+        resultado_teste.append(f"ID {idFone} - Marca: {'PASS' if marca_check else 'FAIL'}")
+        resultado_teste.append(f"ID {idFone} - Preço: {'PASS' if preco_check else 'FAIL'}")
+        resultado_teste.append(f"ID {idFone} - Quantidade: {'PASS' if qtd_check else 'FAIL'}")
+
+        assert modelo_check, f"Erro: 'modelo' é NULL para ID {idFone}"
+        assert tipo_check, f"Erro: 'tipo' é NULL para ID {idFone}"
+        assert marca_check, f"Erro: 'marca' é NULL para ID {idFone}"
+        assert preco_check, f"Erro: 'preco' é NULL para ID {idFone}"
+        assert qtd_check, f"Erro: 'qtd' é NULL para ID {idFone}"
+
+    # Salva os resultados no arquivo 'test_results.txt'
+    with open("test_results.txt", "a") as file:
+        for resultado in resultado_teste:
+            file.write(resultado + "\n")

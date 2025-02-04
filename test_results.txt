@@ -1,0 +1,22 @@
+Item inserido na tabela 'pelicula': PASS
+Modelo correto: PASS
+Tipo correto: PASS
+Imagem correta: PASS
+Preço correto: PASS
+Quantidade correta: PASS
+Atualização de quantidade: PASS (Esperado: 5, Recebido: 5)
+ID 1 - Modelo: PASS
+ID 1 - Tipo: PASS
+ID 1 - Marca: PASS
+ID 1 - Preço: PASS
+ID 1 - Quantidade: PASS
+ID 2 - Modelo: PASS
+ID 2 - Tipo: PASS
+ID 2 - Marca: PASS
+ID 2 - Preço: PASS
+ID 2 - Quantidade: PASS
+ID 3 - Modelo: PASS
+ID 3 - Tipo: PASS
+ID 3 - Marca: PASS
+ID 3 - Preço: PASS
+ID 3 - Quantidade: PASS

@@ -22,7 +22,8 @@ def conexao():
     conn.close()
 
 def test_atualizar_quantidade(conexao):
-    """Verifica se conseguimos atualizar a quantidade de um item na tabela 'capa'."""
+    """Verifica se conseguimos atualizar a quantidade de um item na tabela 'capa' e salva os resultados em um arquivo."""
+    resultado_teste = []  # Lista para armazenar os resultados do teste
     cursor = conexao.cursor()
     
     # Inserindo um produto na tabela
@@ -41,5 +42,15 @@ def test_atualizar_quantidade(conexao):
     cursor.execute("SELECT qtd FROM capa WHERE modelo = 'iPhone 13'")
     qtd_atualizada = cursor.fetchone()[0]
 
-    # Verificando se a atualização foi bem-sucedida
-    assert qtd_atualizada == nova_quantidade, f"Esperado {nova_quantidade}, mas recebeu {qtd_atualizada}"
+    # Verificações
+    qtd_check = qtd_atualizada == nova_quantidade
+
+    resultado_teste.append(f"Atualização de quantidade: {'PASS' if qtd_check else 'FAIL'} (Esperado: {nova_quantidade}, Recebido: {qtd_atualizada})")
+
+    # Salva os resultados no arquivo 'test_results.txt'
+    with open("test_results.txt", "a") as file:
+        for resultado in resultado_teste:
+            file.write(resultado + "\n")
+
+    # Asserção para pytest
+    assert qtd_check, f"Erro: Esperado {nova_quantidade}, mas recebeu {qtd_atualizada}"
