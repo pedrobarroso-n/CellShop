@@ -43,10 +43,10 @@
     
     <div id="pelicula">
       <form action="{{url_for('Venda_pelicula')}}" method="post" class="formulario__produto">
-        <label>Escolha o Modelo da pelicula:</label> <br>
+        <label>Escolha o Modelo da Pelicula:</label> <br>
         <select name="Produto" id="ProdutoPelicula" required="required" >
           <option value="#"></option>
-          {% for now in dados[0] %}
+          {% for now in dados[1] %}
             <option value="{{now}}">{{now[1]}}</option>
           <p>{{now[5]}}</p>
           {% endfor %}
@@ -64,8 +64,8 @@
     </div>
   
     <div id="capa">
-      <form action="" method="post" class="formulario__produto">
-        <label>Escolha o Modelo da Capinha:</label>  <br>
+      <form action="{{url_for('Venda_capa')}}" method="post" class="formulario__produto">
+        <label>Escolha o Modelo da Capa:</label>  <br>
         <select name="Produto" id="ProdutoCapa" required="required" >
           <option value="#"></option>
           {% for now in dados[0] %}
@@ -85,12 +85,12 @@
       </form>
     </div>
   
-    <div id="carregador"  class="mostar-infos"">
-      <form action="" method="post" class="formulario__produto">
+    <div id="carregador"  class="mostar-infos">
+      <form action="{{url_for('Venda_carregador')}}" method="post" class="formulario__produto">
         <label>Escolha o Modelo de Carregadores:</label> <br>
         <select name="Produto" id="ProdutoCarregador" required="required" >
           <option value="#"></option>
-          {% for now in dados[0] %}
+          {% for now in dados[4] %}
             <option value="{{now}}">{{now[1]}}</option>
           <p>{{now[5]}}</p>
           {% endfor %}
@@ -108,12 +108,12 @@
     </div>
   
     <div id="cabos_adaptador"  class="mostar-infos">
-      <form action="" method="post" class="formulario__produto">
+      <form action="{{url_for('Venda_cabos_adaptador')}}" method="post" class="formulario__produto">
         <label>Escolha o Modelo de Cabos adaptadores:</label> <br>
         <select name="Produto" id="ProdutoCabos_adaptador" required="required" >
           <option value="#"></option>
-          {% for now in dados[0] %}
-            <option value="{{now}}">{{now[1]}}</option>
+          {% for now in dados[2] %}
+            <option value="{{now}}">{{now[2]}} -> {{now[3]}}</option>
           <p>{{now[5]}}</p>
           {% endfor %}
         </select>
@@ -130,11 +130,11 @@
     </div>
   
     <div id="fone"  class="mostar-infos">
-      <form action="" method="post" class="formulario__produto">
+      <form action="{{url_for('Venda_fone')}}" method="post" class="formulario__produto">
         <label>Escolha o Modelo de Fones:</label> <br>
         <select name="Produto" id="ProdutoFone" required="required" >
           <option value="#"></option>
-          {% for now in dados[0] %}
+          {% for now in dados[3] %}
             <option value="{{now}}">{{now[1]}}</option>
           <p>{{now[5]}}</p>
           {% endfor %}

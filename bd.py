@@ -161,3 +161,5 @@ cur.executemany(inserirCabos_adaptador, dadosCabos_adaptador)
 cur.executemany(inserirFone, dadosFone)
 conn.commit()
 
+
+

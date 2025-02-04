@@ -1,13 +1,12 @@
 import sqlite3
-
 from flask import Flask, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    
     return render_template("index.html")
+
 
 #Pelicula
 @app.route('/peliculas')
@@ -22,7 +21,8 @@ def pelicula():
     conn.close()
     return render_template("pelicula/index.html",pelicula=pelicula)
 
-#Capa2
+
+#Capa
 @app.route('/capas')
 def capa():
 
@@ -34,6 +34,7 @@ def capa():
     
     conn.close()
     return render_template("capa/index.html",capa=capa)
+
 
 #Carregador
 @app.route('/carregadores')
@@ -48,7 +49,8 @@ def carregador():
     conn.close()
     return render_template("carregador/index.html",carregador=carregador)
 
-#Cabo_adaptador
+
+#Cabos_adaptador
 @app.route('/cabos_adaptadores')
 def cabo_adaptador():
 
@@ -61,6 +63,7 @@ def cabo_adaptador():
     conn.close()
     return render_template("cabo_adaptador/index.html",cabo_adaptador=cabo_adaptador)
 
+
 #Fone
 @app.route('/fones')
 def fone():
@@ -71,6 +74,7 @@ def fone():
     fone = cur.fetchall()
     conn.close()
     return render_template("fone/index.html",fone=fone)
+
 
 #Venda
 @app.route('/Vendas')
@@ -111,14 +115,6 @@ def Venda_pelicula():
         return redirect("/Vendas")
     elif request.method == "POST":
 
-        """
-        0 - idPelicula
-        1 - modelo
-        2 - tipo
-        3 - img
-        4 - preco
-        5 - qtd
-        """
         qtd_Compra = request.form['qtd']
         qtd_Compra = int(qtd_Compra)
         dado = request.form['dados'].replace("'","").replace(" ","")
@@ -137,6 +133,7 @@ def Venda_pelicula():
         
         return redirect("/Vendas")
 
+
 @app.route('/Venda_capa', methods=['GET', 'POST'])
 def Venda_capa():
     conn = sqlite3.connect('Db.sql')
@@ -145,15 +142,7 @@ def Venda_capa():
         conn.close()
         return redirect("/Vendas")
     elif request.method == "POST": 
-        """
-        0 - idCP
-        1 - modelo
-        2 - cor
-        3 - material
-        4 - img
-        5 - preco
-        6 - qtd
-        """
+        
         qtd_Compra = request.form['qtd']
         qtd_Compra = int(qtd_Compra)
         dado = request.form['dados'].replace("'","").replace(" ","")
@@ -174,8 +163,95 @@ def Venda_capa():
         return redirect("/Vendas")
 
 
+@app.route('/Venda_fone', methods=['GET', 'POST'])
+def Venda_fone():
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    if request.method == "GET":
+        conn.close()
+        return redirect("/Vendas")
+    elif request.method == "POST": 
+        
+        qtd_Compra = request.form['qtd']
+        qtd_Compra = int(qtd_Compra)
+        dado = request.form['dados'].replace("'","").replace(" ","")
+        DadosLista = dado.split(",")
+        DadosLista[0] = int(DadosLista[0])
+        DadosLista[5] = float(DadosLista[5])
+        DadosLista[6]  = int(DadosLista[6])
+
+        atualizarQtd = "updade fone SET qtd = qtd - ? WHERE idFone = ?"
+        if qtd_Compra <= DadosLista[6] or qtd_Compra >= DadosLista[6]:
+            pass
+        else:
+            print(DadosLista)
+            cur.execute(atualizarQtd, (DadosLista[6], DadosLista[0]))
+            conn.commit()
+            conn.close()
+
+        return redirect("/Vendas")
+
+
+@app.route('/Venda_carregador', methods=['GET', 'POST'])
+def Venda_carregador():
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    if request.method == "GET":
+        conn.close()
+        return redirect("/Vendas")
+    elif request.method == "POST": 
+
+        qtd_Compra = request.form['qtd']
+        qtd_Compra = int(qtd_Compra)
+        dado = request.form['dados'].replace("'","").replace(" ","")
+        DadosLista = dado.split(",")
+        DadosLista[0] = int(DadosLista[0])
+        DadosLista[5] = float(DadosLista[5])
+        DadosLista[6]  = int(DadosLista[6])
+
+        atualizarQtd = "updade carregador SET qtd = qtd - ? WHERE idCarregador = ?"
+        if qtd_Compra <= DadosLista[6] or qtd_Compra >= DadosLista[6]:
+            pass
+        else:
+            print(DadosLista)
+            cur.execute(atualizarQtd, (DadosLista[6], DadosLista[0]))
+            conn.commit()
+            conn.close()
+
+        return redirect("/Vendas")
+
+
+@app.route('/Venda_cabos_adaptador', methods=['GET', 'POST'])
+def Venda_cabos_adaptador():
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    if request.method == "GET":
+        conn.close()
+        return redirect("/Vendas")
+    elif request.method == "POST": 
+        
+        qtd_Compra = request.form['qtd']
+        qtd_Compra = int(qtd_Compra)
+        dado = request.form['dados'].replace("'","").replace(" ","")
+        DadosLista = dado.split(",")
+        DadosLista[0] = int(DadosLista[0])
+        DadosLista[5] = float(DadosLista[5])
+        DadosLista[6]  = int(DadosLista[6])
+
+        atualizarQtd = "updade cabos_adaptador SET qts = qtd - ? WHERE idCabo = ?"
+        if qtd_Compra <= DadosLista[6] or qtd_Compra >= DadosLista[6]:
+            pass
+        else:
+            print(DadosLista)
+            cur.execute(atualizarQtd, (DadosLista[6], DadosLista[0]))
+            conn.commit()
+            conn.close()
+
+        return redirect("/Vendas")
 
 
 if __name__ == '__main__':
     app.secret_key = 'TudoANos'
     app.run(debug=True)
+
+
