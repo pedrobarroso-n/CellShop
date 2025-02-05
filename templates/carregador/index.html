@@ -32,12 +32,15 @@
         <div class="produtos__item__dados">
           <p>Cor: {{row[2]}}</p>
         </div>
-        <button>{{row[4]}}</button>
+        <div class="produtos__item__dados2">
+          <button>{{row[4]}}</button>
+          <p>em estoque: {{row[5]}}</p>
+        </div>
       </div>
     {% endfor %}
   </main>
   <footer class="rodape">
-    <p>Todos os direitos reservados á CellShop @2024</p>
+    <p>Todos os direitos reservados á CellShop @2024-2025</p>
     <a href="{{url_for('index')}}" class="cabecalho__logo">
       <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
     </a>
