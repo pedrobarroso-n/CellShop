@@ -8,8 +8,6 @@ document.getElementById("ProdutoCarregador").addEventListener("change", MostrarD
 document.getElementById("ProdutoCabos_adaptador").addEventListener("change", MostrarDadosCabos_adaptador);
 document.getElementById("ProdutoFone").addEventListener("change", MostrarDadosFone);
 
-
-
 //Pelicula
 function Mostrar_Form() {
   // Obtem o valor da categoria selecionada

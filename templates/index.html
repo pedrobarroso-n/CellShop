@@ -28,12 +28,14 @@
   <main class="banners">
     <div class="banners__item">
       <img src="{{url_for('static', filename='img/banners/banner2.png')}}" alt="banner ilustrativo" >
-      <h2>Encontre o que mais combina com você.</h2>
+      <h2>Encontre o que mais combina com você!</h2>
     </div>
+    <!--
     <div class="banners__item">
       <img src="{{url_for('static', filename='img/banners/banner1.png')}}" alt="banner ilustrativo" >
       <h2>Qualidade e Preço justo sempre.</h2>
     </div>
+    -->
     <div class="banners__item__full">
       <a href="{{url_for('pelicula')}}">
         <img src="{{url_for('static', filename='img/banners/banner-promo-top1.png')}}" alt="banner de divulgação da CellShop" >
@@ -41,7 +43,7 @@
     </div>
   </main>
   <footer class="rodape">
-    <p>Todos os direitos reservados á CellShop @2024</p>
+    <p id="year">Todos os direitos reservados á CellShop @2024-2025</p>
     <a href="{{url_for('index')}}" class="cabecalho__logo">
       <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
     </a>
