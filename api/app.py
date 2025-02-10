@@ -1,7 +1,6 @@
 import sqlite3
 from flask import Flask, render_template, request, url_for, redirect
 
-app = Flask(__name__)
 conn = sqlite3.connect("Db.sql")
 cur = conn.cursor()
 
@@ -164,6 +163,8 @@ cur.executemany(inserirFone, dadosFone)
 conn.commit()
 
 #-----------------------------------| APP |-----------------------------------------
+
+app = Flask(__name__)
 
 
 @app.route('/')
