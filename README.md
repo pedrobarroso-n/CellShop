@@ -1,6 +1,6 @@
-# Cell_Shop
+# Cell Shop
 
-**Cell_Shop** é uma aplicação web para gerenciar um inventário de celulares e realizar vendas online. Desenvolvido com o framework Flask, este projeto visa fornecer uma interface amigável para a administração de produtos e pedidos.
+**Cell Shop** é uma aplicação web para gerenciar um inventário de perifericos de celulares e realizar vendas online. Desenvolvido com o framework Flask, este projeto visa fornecer uma interface amigável para a administração de produtos e pedidos.
 
 ## Recursos
 
@@ -21,7 +21,7 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/CellShop.git
+   git clone https://github.com/pedrobarroso-n/CellShop.git
    cd Cell_Shop
    ```
 
@@ -63,23 +63,32 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 
    Acesse a aplicação em [http://localhost:5000](http://localhost:5000).
 
-## Estrutura do Projeto
 
-- **static/**: Arquivos estáticos (pecularidade do framework).
-   - **css/** - Arquivos .css
-   - **img/** - Arquivos .png .jps .jpge
-   - **js/** - Arquivos .js
-- **templates/**: Arquivos de template HTML.
-   - **pastas/** - 6 ao todo, cada uma representa um tipo de produto.
-   - **index.html** - Hmtl principal, página home.
-- **main.py**: Controle e gerencia do banco de dados.
-- **bd.py**: Estrutura do banco de dados.
-- **Db.sql**: Banco de dados do projeto.
+### Acesso Simplificado
+
+   Acesse a aplicação on-line em [https://cellshop-p2.vercel.app/](https://cellshop-p2.vercel.app/)
+
+## Estrutura Principal
+
+- **api**: Pasta unificada para usabilidade do servidor de hospedagem
+   - **static/**: Pasta de arquivos estáticos.
+      - **css/** - Arquivos .css
+      - **img/** - Arquivos de imagem
+      - **js/** - Arquivos .js
+   - **templates/**: Pasta de arquivos html.
+      - **pasta/index.html** - Cada pasta representa um tipo de produto com seu index.html para usabilidade.
+      - **index.html** - Página html principal(home page), inicial na navegação do sistema.
+   - **main.py** - Controle e gerencia do banco de dados.
+   - **bd.py** - Estrutura do banco de dados.
+
+- **Db.sql** - Banco de dados do projeto.
+- **vercel.json** - Controle de arquivos carregados pelo servidor de hospedagem
 
 ## Contribuições
 
-1. [@GleisonPS](https://github.com/GleisonPS)
+1. [@pedrobarroso-n](https://github.com/pedrobarroso-n/)
 2. [@Ranykelle21](https://github.com/Ranykelle21)
+3. [@GleisonPS](https://github.com/GleisonPS)
 
 ## Licença
 

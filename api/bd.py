@@ -58,11 +58,13 @@ CREATE TABLE IF NOT EXISTS fone (
     qtd inetger
 );
 """
+
 cur.execute(pelicula)
 cur.execute(capa)
 cur.execute(carregador)
 cur.execute(cabos_adaptador)
 cur.execute(fone)
-conn.commit()
 
+conn.commit()
+conn.close()
 
