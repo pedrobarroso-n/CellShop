@@ -2,12 +2,23 @@
 
 **Cell Shop** é uma aplicação web para gerenciar um inventário de perifericos de celulares e realizar vendas online. Desenvolvido com o framework Flask, este projeto visa fornecer uma interface amigável para a administração de produtos e pedidos.
 
+<!--
 ## Recursos
 
 - **Gerenciamento de Produtos**: Adicione, edite e exclua celulares no inventário.
 - **Vendas e Pedidos**: Crie e gerencie pedidos de venda.
 - **Usuários**: Sistema de autenticação e autorização para administradores e clientes.
 - **Relatórios**: Visualize relatórios de vendas e estoque.
+-->
+
+ ## Tecnologias
+
+- Html5
+- Css3
+- JavaScript (ES6)
+- Python 3.8 ou superior
+- Flask
+- Git
 
 ## Pré-requisitos
 
@@ -22,7 +33,7 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 
    ```bash
    git clone https://github.com/pedrobarroso-n/CellShop.git
-   cd Cell_Shop
+   cd CellShop
    ```
 
 2. **Crie um ambiente virtual (opcional, mas recomendado):**
@@ -63,11 +74,6 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 
    Acesse a aplicação em [http://localhost:5000](http://localhost:5000).
 
-
-### Acesso Simplificado
-
-   Acesse a aplicação on-line em [https://cellshop-p2.vercel.app/](https://cellshop-p2.vercel.app/)
-
 ## Estrutura Principal
 
 - **api**: Pasta unificada para usabilidade do servidor de hospedagem
@@ -89,6 +95,10 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos instalado
 1. [@pedrobarroso-n](https://github.com/pedrobarroso-n/)
 2. [@Ranykelle21](https://github.com/Ranykelle21)
 3. [@GleisonPS](https://github.com/GleisonPS)
+
+## Acesso Simplificado
+
+   Acesse a aplicação on-line em [https://cellshop-p2.vercel.app/](https://cellshop-p2.vercel.app/)
 
 ## Licença
 
