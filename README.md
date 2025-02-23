@@ -16,8 +16,8 @@
 - Html5
 - Css3
 - JavaScript (ES6)
-- Python 3.8 ou superior
-- Flask
+- Python 3.8
+- Flask 3.1.0
 - Git
 
 ## Pré-requisitos
