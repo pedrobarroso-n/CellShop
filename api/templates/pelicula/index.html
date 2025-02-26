@@ -20,7 +20,7 @@
       <li><a href="{{url_for('capa')}}">Capas</a>
       <li><a href="{{url_for('fone')}}">Fones</a>
       <li><a href="{{url_for('carregador')}}">Carregadores</a>
-      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a>  
+      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a>   
     </ul>
   </header>
   <main class="produtos">
@@ -32,7 +32,7 @@
           <p>Tipo: {{row[2]}}</p>
         </div>
         <div class="produtos__item__dados2">
-          <a href="{{url_for('vendasPelicula', idpelicula=row[0])}}">{{row[4]}}</a>
+          <a href="{{url_for('compraPelicula', id=row[0])}}">{{row[4]}}</a>
           <p>em estoque: {{row[5]}}</p>
         </div>
       </div>

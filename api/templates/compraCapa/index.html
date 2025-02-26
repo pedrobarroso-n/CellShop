@@ -19,21 +19,22 @@
       <li><a href="{{url_for('pelicula')}}">Peliculas</a>
       <li><a href="{{url_for('capa')}}">Capas</a>
       <li><a href="{{url_for('fone')}}">Fones</a>
-      <li><a href="{{url_for('carregador')}}" style="color: var(--cor-quartenaria);">Carregadores</a>
-      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a>  
+      <li><a href="{{url_for('carregador')}}">Carregadores</a>
+      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a>   
     </ul>
   </header>
   <main class="produtos">
-    {% for row in carregador %}
+    {% for row in compra %}
       <div class="produtos__item">
-        <img src=static/img/{{row[3]}}  alt="imagem">
-        <h2>{{row[1]}}</h2>
+        <img src=../../static/img/{{row[4]}}  alt="imagem">
+        <h2>Capa para {{row[1]}}</h2>
         <div class="produtos__item__dados">
           <p>Cor: {{row[2]}}</p>
+          <p>Material: {{row[3]}}</p>
         </div>
         <div class="produtos__item__dados2">
-          <a href="{{url_for('compraCarregador', id=row[0])}}">{{row[4]}}</a>
-          <p>em estoque: {{row[5]}}</p>
+          <a href="{{url_for('vendasCapa', idcapa=row[0])}}">{{row[5]}}</a>
+          <p>em estoque: {{row[6]}}</p>
         </div>
       </div>
     {% endfor %}

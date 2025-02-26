@@ -132,11 +132,13 @@ def vendasCabos_adaptador(idcabo):
 #Fone
 @app.route('/fones')
 def fone():
+
     conn = sqlite3.connect('Db.sql')
     cur = conn.cursor()
     Comando = "SELECT * FROM fone"
     cur.execute(Comando)
     fone = cur.fetchall()
+
     conn.close()
     return render_template("fone/index.html",fone=fone)
 
@@ -155,6 +157,76 @@ def vendasFone(idfone):
     conn.commit()
     conn.close()
     return redirect('/fones')
+
+
+#Compra Pelicula
+@app.route('/compraPelicula/<int:id>')
+def compraPelicula(id):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    Comando = f"SELECT * FROM pelicula WHERE idPelicula = {id}"
+    cur.execute(Comando)
+    compra = cur.fetchall()
+   
+    conn.close()
+    return render_template("compraPelicula/index.html", compra=compra)
+
+
+#Compra Capa
+@app.route('/compraCapa/<int:id>')
+def compraCapa(id):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    Comando = f"SELECT * FROM capa WHERE idCP = {id}"
+    cur.execute(Comando)
+    compra = cur.fetchall()
+   
+    conn.close()
+    return render_template("compraCapa/index.html", compra=compra)
+
+
+#Compra Carregador
+@app.route('/compraCarregador/<int:id>')
+def compraCarregador(id):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    Comando = f"SELECT * FROM carregador WHERE idCarregador = {id}"
+    cur.execute(Comando)
+    compra = cur.fetchall()
+   
+    conn.close()
+    return render_template("compraCarregador/index.html", compra=compra)
+
+
+#Compra Fone
+@app.route('/compraFone/<int:id>')
+def compraFone(id):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    Comando = f"SELECT * FROM fone WHERE idFone= {id}"
+    cur.execute(Comando)
+    compra = cur.fetchall()
+   
+    conn.close()
+    return render_template("compraFone/index.html", compra=compra)
+
+
+#Compra Cabos_adaptador
+@app.route('/compraCabos_adaptador/<int:id>')
+def compraCabos_adaptador(id):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    Comando = f"SELECT * FROM cabos_adaptador WHERE idCabo= {id}"
+    cur.execute(Comando)
+    compra = cur.fetchall()
+   
+    conn.close()
+    return render_template("compraCabos_adaptador/index.html", compra=compra)
 
 
 
