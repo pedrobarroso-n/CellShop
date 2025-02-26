@@ -1,9 +1,9 @@
 import sqlite3
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, redirect, request, url_for
 
 app = Flask(__name__)
 
-
+#Home Page
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -23,6 +23,22 @@ def pelicula():
     return render_template("pelicula/index.html",pelicula=pelicula)
 
 
+#Pelicula Vendas
+@app.route('/vendasPelicula/<int:idpelicula>')
+def vendasPelicula(idpelicula):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    cur.execute('''
+        UPDATE pelicula SET qtd = qtd - 1 
+        WHERE idPelicula = ? AND qtd > 0
+    ''', (idpelicula,))
+
+    conn.commit()
+    conn.close()
+    return redirect('/peliculas')
+
+
 #Capa
 @app.route('/capas')
 def capa():
@@ -35,6 +51,22 @@ def capa():
     
     conn.close()
     return render_template("capa/index.html",capa=capa)
+
+
+#Capa Vendas
+@app.route('/vendasCapa/<int:idcapa>')
+def vendasCapa(idcapa):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    cur.execute('''
+        UPDATE capa SET qtd = qtd - 1 
+        WHERE idCP = ? AND qtd > 0
+    ''', (idcapa,))
+
+    conn.commit()
+    conn.close()
+    return redirect('/capas')
 
 
 #Carregador
@@ -51,6 +83,22 @@ def carregador():
     return render_template("carregador/index.html",carregador=carregador)
 
 
+#Carregador Vendas
+@app.route('/vendasCarregador/<int:idcarregador>')
+def vendasCarregador(idcarregador):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    cur.execute('''
+        UPDATE carregador SET qtd = qtd - 1 
+        WHERE idCarregador = ? AND qtd > 0
+    ''', (idcarregador,))
+
+    conn.commit()
+    conn.close()
+    return redirect('/carregadores')
+
+
 #Cabos_adaptador
 @app.route('/cabos_adaptadores')
 def cabo_adaptador():
@@ -65,6 +113,22 @@ def cabo_adaptador():
     return render_template("cabo_adaptador/index.html",cabo_adaptador=cabo_adaptador)
 
 
+#Cabos_adaptador Vendas
+@app.route('/vendasCabos_adaptador/<int:idcabo>')
+def vendasCabos_adaptador(idcabo):
+
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    cur.execute('''
+        UPDATE cabos_adaptador SET qtd = qtd - 1 
+        WHERE idCabo = ? AND qtd > 0
+    ''', (idcabo,))
+
+    conn.commit()
+    conn.close()
+    return redirect('/cabos_adaptadores')
+
+
 #Fone
 @app.route('/fones')
 def fone():
@@ -77,8 +141,24 @@ def fone():
     return render_template("fone/index.html",fone=fone)
 
 
-if __name__ == '__main__':
-    app.secret_key = 'TudoANos'
-    app.run(debug=True)
+#Fone Vendas
+@app.route('/vendasFone/<int:idfone>')
+def vendasFone(idfone):
 
+    conn = sqlite3.connect('Db.sql')
+    cur = conn.cursor()
+    cur.execute('''
+        UPDATE fone SET qtd = qtd - 1 
+        WHERE idFone = ? AND qtd > 0
+    ''', (idfone,))
+
+    conn.commit()
+    conn.close()
+    return redirect('/fones')
+
+
+
+if __name__ == '__main__':
+    app.secret_key = 'CellTop24'
+    app.run(debug=True)
 

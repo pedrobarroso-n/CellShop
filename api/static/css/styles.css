@@ -128,7 +128,10 @@
   gap: 0px 5px;
 }
 
-.produtos__item__dados2 button {
+.produtos__item__dados2 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 2;
 }
 
@@ -142,19 +145,19 @@
   font-weight: 400;
 }
 
-.produtos__item button {
-  padding: 5px 0px;
+.produtos__item a {
+  height: 100%;
   cursor: pointer;
   border: 1px solid var(--cor-quintenaria);
   background-color: var(--cor-terciaria);
   color: var(--cor-fonte-2);
 }
 
-.produtos__item button:hover {
+.produtos__item a:hover {
   transform: scale(1.02);
 }
 
-.produtos__item button:before {
+.produtos__item a:before {
   content: 'R$ ';
   font-family: Arial, Helvetica, sans-serif;
 }

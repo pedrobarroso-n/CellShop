@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br"">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
           <p>Material: {{row[3]}}</p>
         </div>
         <div class="produtos__item__dados2">
-          <button>{{row[5]}}</button>
+          <a href="{{url_for('vendasCapa', idcapa=row[0])}}">{{row[5]}}</a>
           <p>em estoque: {{row[6]}}</p>
         </div>
       </div>

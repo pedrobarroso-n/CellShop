@@ -32,7 +32,7 @@
           <p>Cor: {{row[2]}}</p>
         </div>
         <div class="produtos__item__dados2">
-          <button>{{row[4]}}</button>
+          <a href="{{url_for('vendasCarregador', idcarregador=row[0])}}">{{row[4]}}</a>
           <p>em estoque: {{row[5]}}</p>
         </div>
       </div>

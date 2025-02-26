@@ -33,7 +33,7 @@
            <p>Marca: {{row[3]}}</p>
         </div>
         <div class="produtos__item__dados2">
-          <button>{{row[5]}}</button>
+          <a href="{{url_for('vendasFone', idfone=row[0])}}">{{row[5]}}</a>
           <p>em estoque: {{row[6]}}</p>
         </div>
       </div>
