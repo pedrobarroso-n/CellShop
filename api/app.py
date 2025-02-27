@@ -36,11 +36,8 @@ def vendasPelicula(idpelicula):
 
     conn.commit()
 
-    cur.execute("SELECT * FROM pelicula")
-    pelicula = cur.fetchall()
-
     conn.close()
-    return render_template("pelicula/index.html",pelicula=pelicula)
+    return redirect('/peliculas')
 
 
 #Capa
