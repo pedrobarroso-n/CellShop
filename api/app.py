@@ -31,7 +31,7 @@ def vendasPelicula(idpelicula):
     cur = conn.cursor()
     Comando = '''UPDATE pelicula SET qtd = qtd - 1 WHERE idPelicula = ? AND qtd > 0''', (idpelicula)
     cur.execute(Comando)
-    conn.commit()
+    #conn.commit()
 
     conn.close()
     return redirect('/peliculas')

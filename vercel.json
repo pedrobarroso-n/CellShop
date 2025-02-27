@@ -2,8 +2,7 @@
 
     "rewrites": [
 
-        { "source": "/(.*)", "destination": "/api/app" },
-        { "source": "/(.*)", "destination": "/Db" }
+        { "source": "/(.*)", "destination": "/api/app" }
 
     ]
 
