@@ -27,16 +27,16 @@ def pelicula():
 @app.route('/vendasPelicula/<int:idpelicula>')
 def vendasPelicula(idpelicula):
 
-    conn = sqlite3.connect('Db.sql')
-    cur = conn.cursor()
-    cur.execute('''
-        UPDATE pelicula SET qtd = qtd - 1 
-        WHERE idPelicula = ? AND qtd > 0
-    ''', (idpelicula,))
+    #conn = sqlite3.connect('Db.sql')
+    #cur = conn.cursor()
+    #cur.execute('''
+    #    UPDATE pelicula SET qtd = qtd - 1 
+    #    WHERE idPelicula = ? AND qtd > 0
+    #''', (idpelicula,))
 
-    conn.commit()
+    #conn.commit()
 
-    conn.close()
+    #conn.close()
     return redirect('/peliculas')
 
 
