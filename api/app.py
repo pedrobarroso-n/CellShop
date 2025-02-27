@@ -37,6 +37,7 @@ def vendasPelicula(idpelicula):
     conn.commit()
     conn.close()
     return redirect('/peliculas')
+    #return pelicula()
 
 
 #Capa
