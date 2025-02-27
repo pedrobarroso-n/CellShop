@@ -31,10 +31,14 @@ def vendasPelicula(idpelicula):
     cur = conn.cursor()
     Comando = '''UPDATE pelicula SET qtd = qtd - 1 WHERE idPelicula = ? AND qtd > 0''', (idpelicula)
     cur.execute(Comando)
-    #conn.commit()
+    conn.commit()
 
+    Comando = "SELECT * FROM pelicula"
+    cur.execute(Comando)
+    pelicula = cur.fetchall()
+    
     conn.close()
-    return redirect('/peliculas')
+    return render_template("pelicula/index.html",pelicula=pelicula)
 
 
 #Capa
