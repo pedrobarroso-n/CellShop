@@ -29,17 +29,14 @@ def vendasPelicula(idpelicula):
 
     conn = sqlite3.connect('Db.sql')
     cur = conn.cursor()
-    Comando = '''UPDATE pelicula SET qtd = qtd - 1 WHERE idPelicula = ? AND qtd > 0''', (idpelicula)
-    cur.execute(Comando)
-    conn.commit()
-
-    Comando = "SELECT * FROM pelicula"
-    cur.execute(Comando)
-    pelicula = cur.fetchall()
+    cur.execute('''
+            UPDATE pelicula SET qtd = qtd - 1 
+            WHERE idPelicula = ? AND qtd > 0
+        ''', (idpelicula,))
     
+    conn.commit()
     conn.close()
-    return render_template("pelicula/index.html",pelicula=pelicula)
-
+    return redirect('/peliculas')
 
 #Capa
 @app.route('/capas')
