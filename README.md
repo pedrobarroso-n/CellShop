@@ -2,14 +2,11 @@
 
 **Cell Shop** é uma aplicação web desenvolvida para gerenciar o inventário de periféricos de celulares e facilitar vendas online de forma eficiente. Utilizando o framework Flask, o projeto oferece uma interface intuitiva e responsiva, com o objetivo é simplificar a administração do estoque e otimizar o processo de vendas, proporcionando uma experiência prática e acessível tanto para administradores quanto para clientes.
 
-<!--
 ## Recursos
 
-- **Gerenciamento de Produtos**: Adicione, edite e exclua celulares no inventário.
+- **Gerenciamento de Produtos**: Adicione, edite, busque e exclua do inventário.
 - **Vendas e Pedidos**: Crie e gerencie pedidos de venda.
-- **Usuários**: Sistema de autenticação e autorização para administradores e clientes.
-- **Relatórios**: Visualize relatórios de vendas e estoque.
--->
+- **Usuários**: Sistema dividido entre administradores e clientes.
 
  ## Tecnologias
 
