@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
   <title>CellShop</title>
 </head>
-<body>
+<body id="topo">
   <header class="cabecalho">
     <a href="{{url_for('index')}}" class="cabecalho__logo">
       <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
@@ -21,12 +21,13 @@
       <li><a href="{{url_for('fone')}}">Fones</a>
       <li><a href="{{url_for('carregador')}}">Carregadores</a>
       <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a> 
-      <li><a href="{{url_for('cadastro')}}" style="color: var(--cor-quartenaria);">Cadastrar</a> 
+      <li><a href="{{url_for('cadastro')}}" style="color: var(--cor-quartenaria);">Cadastrar</a>
+      <li><a href="{{url_for('buscar')}}">Buscar</a> 
     </ul>
   </header>
   <main class="cadastro">
     <fieldset>
-      <legend>Cadastar Produto: Pelicula</legend>
+      <legend>Cadastrar Produto: Pelicula</legend>
       <form action="{{url_for('add_pelicula')}}" method="post" class="form">
         <input type="text" name="modelo" placeholder="Modelo" id="modelo">
         <input type="text" name="tipo" placeholder="Tipo" id="tipo">
@@ -38,7 +39,7 @@
     </fieldset>
 
     <fieldset>
-      <legend>Cadastar Produto: Capa</legend>
+      <legend>Cadastrar Produto: Capa</legend>
       <form action="{{url_for('add_capa')}}" method="post" class="form">
         <input type="text" name="modelo" placeholder="Modelo" id="modelo">
         <input type="text" name="cor" placeholder="Cor" id="cor">
@@ -51,7 +52,7 @@
     </fieldset>
 
     <fieldset>
-      <legend>Cadastar Produto: Fone</legend>
+      <legend>Cadastrar Produto: Fone</legend>
       <form action="{{url_for('add_fone')}}" method="post" class="form">
         <input type="text" name="modelo" placeholder="Modelo" id="modelo">
         <input type="text" name="marca" placeholder="Marca" id="marca">
@@ -64,7 +65,7 @@
     </fieldset>
 
     <fieldset>
-      <legend>Cadastar Produto: Carregador</legend>
+      <legend>Cadastrar Produto: Carregador</legend>
       <form action="{{url_for('add_carregador')}}" method="post" class="form">
         <input type="text" name="cor" placeholder="cor" id="cor">
         <input type="text" name="tipo" placeholder="Tipo" id="tipo">
@@ -76,7 +77,7 @@
     </fieldset>
 
     <fieldset>
-      <legend>Cadastar Produto: Cabo_adaptador</legend>
+      <legend>Cadastar Produto: Cabo ou Adaptador</legend>
       <form action="{{url_for('add_cabos_adaptador')}}" method="post" class="form">
         <input type="text" name="entrada" placeholder="Entrada" id="entrada">
         <input type="text" name="saida" placeholder="Saida" id="saida">
@@ -89,11 +90,19 @@
     </fieldset>
   </main>
   <footer class="rodape">
-    <p>Todos os direitos reservados á CellShop @2024-2025</p>
     <a href="{{url_for('index')}}" class="cabecalho__logo">
-      <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+      <img class="rodape__logo" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
     </a>
-    <p>Agradecemos á preferencia!</p>
+    <div class="rodape__dados">
+      <a href="#topo">
+        <img class="rodape__icone" src="{{url_for('static', filename='img/icons/seta-para-cima.png')}}" alt="icone de voltar ao topo da tela" />
+      </a>
+      <div>
+        <p>Todos os direitos reservados CellShop @2025</p>
+        <p>Equipe da CellShop - <a href="#"><ins>ADS MOD III/IV</ins></a></p>
+        <p>Agradecemos á preferencia!</p>
+      </div>
+    </div>
   </footer>
 
 </body>

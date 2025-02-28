@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo/logo.png')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" >
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
   <title>CellShop</title>
 </head>
 <body id="topo">
@@ -20,24 +20,19 @@
       <li><a href="{{url_for('capa')}}">Capas</a>
       <li><a href="{{url_for('fone')}}">Fones</a>
       <li><a href="{{url_for('carregador')}}">Carregadores</a>
-      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a>
-      <li><a href="{{url_for('cadastro')}}">Cadastrar</a>   
+      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a> 
+      <li><a href="{{url_for('cadastro')}}">Cadastrar</a> 
+      <li><a href="{{url_for('buscar')}}" style="color: var(--cor-quartenaria);">Buscar</a>
     </ul>
   </header>
+  <main class="buscar">
+    <form action="{{url_for('buscarItem')}}" method="post">
+        <input type="search" name="buscar" placeholder="Digite o nome do produto" id="buscar">
+        <input type="submit" value="Buscar">
+    </form>
+  </main>
   <main class="produtos">
-    {% for row in compra %}
-      <div class="produtos__item">
-        <img src="{{row[3]}}" alt="imagem">
-        <h2>Pelicula para {{row[1]}}</h2>
-        <div class="produtos__item__dados">
-          <p>Tipo: {{row[2]}}</p>
-        </div>
-        <div class="produtos__item__dados2">
-          <a href="{{url_for('vendasPelicula', idpelicula=row[0])}}">{{row[4]}}</a>
-          <p>em estoque: {{row[5]}}</p>
-        </div>
-      </div>
-    {% endfor %}
+    <!-- Aqui vai o resultado da busca -->
   </main>
   <footer class="rodape">
     <a href="{{url_for('index')}}" class="cabecalho__logo">
@@ -54,5 +49,6 @@
       </div>
     </div>
   </footer>
+
 </body>
 </html>

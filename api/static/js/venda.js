@@ -1,6 +1,4 @@
-/**
- * @author: Gleison Pereira
- */
+
 document.getElementById("categoria").addEventListener("change", Mostrar_Form);
 document.getElementById("ProdutoPelicula").addEventListener("change", MostrarDadosPelicula);
 document.getElementById("ProdutoCapa").addEventListener("change", MostrarDadosCapa);

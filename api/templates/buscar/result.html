@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo/logo.png')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+  <title>CellShop</title>
+</head>
+<body id="topo">
+  <header class="cabecalho">
+    <a href="{{url_for('index')}}" class="cabecalho__logo">
+      <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    </a>
+    <ul class="cabecalho__links">
+      <li><a href="{{url_for('index')}}">Home</a>
+      <li><a href="{{url_for('pelicula')}}">Peliculas</a>
+      <li><a href="{{url_for('capa')}}">Capas</a>
+      <li><a href="{{url_for('fone')}}">Fones</a>
+      <li><a href="{{url_for('carregador')}}">Carregadores</a>
+      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a> 
+      <li><a href="{{url_for('cadastro')}}">Cadastrar</a> 
+      <li><a href="{{url_for('buscar')}}" style="color: var(--cor-quartenaria);">Buscar</a>
+    </ul>
+  </header>
+  <main class="buscar">
+    <form action="{{url_for('buscarItem')}}" method="post">
+        <input type="search" name="buscar" placeholder="Digite o nome do produto" id="buscar">
+        <input type="submit" value="Buscar">
+    </form>
+    
+  </main>
+  <main class="produtos">
+    {% for row in dados[0] %}
+    <div class="produtos__item">
+        <img src={{row[3]}}  alt="imagem">
+        <h2>Pelicula para {{row[1]}}</h2>
+        <div class="produtos__item__dados">
+            <p>Tipo: {{row[2]}}</p>
+        </div>
+        <div class="produtos__item__dados2">
+            <a href="{{url_for('compraPelicula', id=row[0])}}">{{row[4]}}</a>
+            <p>em estoque: {{row[5]}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% for row in dados[1] %}
+    <div class="produtos__item">
+        <img src={{row[4]}}  alt="imagem">
+        <h2>Capa para {{row[1]}}</h2>
+        <div class="produtos__item__dados">
+            <p>Cor: {{row[2]}}</p>
+            <p>Material: {{row[3]}}</p>
+        </div>
+        <div class="produtos__item__dados2">
+            <a href="{{url_for('compraCapa', id=row[0])}}">{{row[5]}}</a>
+            <p>em estoque: {{row[6]}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% for row in dados[2] %}
+    <div class="produtos__item">
+        <img src={{row[4]}} alt="imagem">
+        <h2>{{row[1]}}</h2>
+        <div class="produtos__item__dados">
+        <p>Entrada: {{row[2]}}</p>
+        <p>Saida: {{row[3]}}</p>
+        </div>
+        <div class="produtos__item__dados2">
+        <a href="{{url_for('compraCabos_adaptador', id=row[0])}}">{{row[5]}}</a>
+        <p>em estoque: {{row[6]}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% for row in dados[3] %}
+    <div class="produtos__item">
+        <img src={{row[4]}}  alt="imagem">
+        <h2>{{row[1]}}</h2>
+        <div class="produtos__item__dados">
+            <p>Tipo: {{row[2]}}</p>
+            <p>Marca: {{row[3]}}</p>
+        </div>
+        <div class="produtos__item__dados2">
+            <a href="{{url_for('compraFone', id=row[0])}}">{{row[5]}}</a>
+            <p>em estoque: {{row[6]}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% for row in dados[4] %}
+    <div class="produtos__item">
+        <img src={{row[3]}}  alt="imagem">
+        <h2>{{row[1]}}</h2>
+        <div class="produtos__item__dados">
+            <p>Cor: {{row[2]}}</p>
+        </div>
+        <div class="produtos__item__dados2">
+            <a href="{{url_for('compraCarregador', id=row[0])}}">{{row[4]}}</a>
+            <p>em estoque: {{row[5]}}</p>
+        </div>
+    </div>
+    {% endfor %}
+  </main>
+  <footer class="rodape">
+    <a href="{{url_for('index')}}" class="cabecalho__logo">
+      <img class="rodape__logo" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    </a>
+    <div class="rodape__dados">
+      <a href="#topo">
+        <img class="rodape__icone" src="{{url_for('static', filename='img/icons/seta-para-cima.png')}}" alt="icone de voltar ao topo da tela" />
+      </a>
+      <div>
+        <p>Todos os direitos reservados CellShop @2025</p>
+        <p>Equipe da CellShop - <a href="#"><ins>ADS MOD III/IV</ins></a></p>
+        <p>Agradecemos á preferencia!</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -171,3 +171,12 @@ def Venda_cabos_adaptador():
 
         return redirect("/Vendas")
 
+
+
+
+
+
+
+
+
+

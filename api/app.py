@@ -16,6 +16,7 @@ TEMP_DB_PATH = os.path.join(tempfile.gettempdir(), 'Db.sql')
 if not os.path.exists(TEMP_DB_PATH):
     shutil.copy(ORIGINAL_DB_PATH, TEMP_DB_PATH)
 
+
 # Pagina Inicial
 @app.route('/')
 def index():
@@ -25,6 +26,44 @@ def index():
 @app.route('/cadastro')
 def cadastro():
     return render_template("cadastro/index.html")
+
+# Buscar
+@app.route('/buscar')
+def buscar():
+    return render_template("buscar/index.html")
+
+# Resultados de busca
+@app.route('/buscarItem', methods=['POST'])
+def buscarItem():
+
+    buscar = request.form.get('buscar')
+
+    conn = sqlite3.connect(TEMP_DB_PATH)
+    cur = conn.cursor()
+    Comando_pelicula = f"SELECT * FROM pelicula WHERE modelo LIKE '%{buscar}%' COLLATE NOCASE"
+    Comando_capa = f"SELECT * FROM capa WHERE modelo LIKE '%{buscar}%' COLLATE NOCASE"
+    Comando_fone = f"SELECT * FROM fone WHERE modelo LIKE '%{buscar}%' COLLATE NOCASE"
+    Comando_carregador = f"SELECT * FROM carregador WHERE tipo LIKE '%{buscar}%' COLLATE NOCASE"
+    Comando_cabos_adaptador = f"SELECT * FROM cabos_adaptador WHERE entrada LIKE '%{buscar}%' COLLATE NOCASE"
+    
+    cur.execute(Comando_pelicula)
+    dados_pelicula = cur.fetchall()
+    
+    cur.execute(Comando_capa)
+    dados_capa = cur.fetchall()
+
+    cur.execute(Comando_cabos_adaptador)
+    dados_cabos_adaptador = cur.fetchall()
+    
+    cur.execute(Comando_fone)
+    dados_fone = cur.fetchall()
+    
+    cur.execute(Comando_carregador)
+    dados_carregador = cur.fetchall()
+    
+    conn.close()
+    return render_template("buscar/result.html", dados=[dados_pelicula, dados_capa, dados_cabos_adaptador, dados_fone, dados_carregador])
+
 
 # Pelicula
 @app.route('/peliculas')
@@ -313,6 +352,10 @@ def compraCabos_adaptador(id):
    
     conn.close()
     return render_template("compraCabos_adaptador/index.html", compra=compra)
+
+
+
+
 
 
 
