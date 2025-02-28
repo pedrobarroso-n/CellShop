@@ -16,10 +16,15 @@ TEMP_DB_PATH = os.path.join(tempfile.gettempdir(), 'Db.sql')
 if not os.path.exists(TEMP_DB_PATH):
     shutil.copy(ORIGINAL_DB_PATH, TEMP_DB_PATH)
 
-# Home Page
+# Pagina Inicial
 @app.route('/')
 def index():
     return render_template("index.html")
+
+# Cadastro
+@app.route('/cadastro')
+def cadastro():
+    return render_template("cadastro/index.html")
 
 # Pelicula
 @app.route('/peliculas')
@@ -47,6 +52,25 @@ def vendasPelicula(idpelicula):
     conn.close()
     return redirect('/peliculas')
 
+# Pelicula Cadastro
+@app.route('/add_pelicula', methods=['POST'])
+def add_pelicula():
+    modelo = request.form['modelo']
+    tipo = request.form['tipo']
+    img = request.form['img']
+    preco = request.form['preco']
+    qtd = request.form['qtd']
+
+    conn = sqlite3.connect(TEMP_DB_PATH)
+    cur = conn.cursor()
+    cur.execute('''
+            INSERT INTO pelicula (modelo, tipo, img, preco, qtd) VALUES (?,?,?,?,?)
+        ''', (modelo, tipo, img, preco, qtd,))
+    
+    conn.commit()
+    conn.close()
+    return redirect('/cadastro')
+
 # Capa
 @app.route('/capas')
 def capa():
@@ -72,6 +96,26 @@ def vendasCapa(idcapa):
     conn.commit()
     conn.close()
     return redirect('/capas')
+
+# Capa Cadastro
+@app.route('/add_capa', methods=['POST'])
+def add_capa():
+    modelo = request.form['modelo']
+    material = request.form['material']
+    cor = request.form['cor']
+    img = request.form['img']
+    preco = request.form['preco']
+    qtd = request.form['qtd']
+
+    conn = sqlite3.connect(TEMP_DB_PATH)
+    cur = conn.cursor()
+    cur.execute('''
+            INSERT INTO capa (modelo, material, cor, img, preco, qtd) VALUES (?,?,?,?,?,?)
+        ''', (modelo, material, cor, img, preco, qtd,))
+    
+    conn.commit()
+    conn.close()
+    return redirect('/cadastro')
 
 # Carregador
 @app.route('/carregadores')
@@ -99,6 +143,25 @@ def vendasCarregador(idcarregador):
     conn.close()
     return redirect('/carregadores')
 
+# Carregador Cadastro
+@app.route('/add_carregador', methods=['POST'])
+def add_carregador():
+    cor = request.form['cor']
+    tipo = request.form['tipo']
+    img = request.form['img']
+    preco = request.form['preco']
+    qtd = request.form['qtd']
+
+    conn = sqlite3.connect(TEMP_DB_PATH)
+    cur = conn.cursor()
+    cur.execute('''
+            INSERT INTO carregador (cor, tipo, img, preco, qtd) VALUES (?,?,?,?,?)
+        ''', (cor, tipo, img, preco, qtd,))
+    
+    conn.commit()
+    conn.close()
+    return redirect('/cadastro')
+
 # Cabos_adaptador
 @app.route('/cabos_adaptadores')
 def cabo_adaptador():
@@ -125,6 +188,26 @@ def vendasCabos_adaptador(idcabo):
     conn.close()
     return redirect('/cabos_adaptadores')
 
+# Cabos_adaptador Cadastro
+@app.route('/add_cabos_adaptador', methods=['POST'])
+def add_cabos_adaptador():
+    entrada = request.form['entrada']
+    saida = request.form['saida']
+    tipo = request.form['tipo']
+    img = request.form['img']
+    preco = request.form['preco']
+    qtd = request.form['qtd']
+
+    conn = sqlite3.connect(TEMP_DB_PATH)
+    cur = conn.cursor()
+    cur.execute('''
+            INSERT INTO cabos_adaptador (entrada, saida, tipo, img, preco, qtd) VALUES (?,?,?,?,?,?)
+        ''', (entrada, saida, tipo, img, preco, qtd,))
+    
+    conn.commit()
+    conn.close()
+    return redirect('/cadastro')
+
 # Fone
 @app.route('/fones')
 def fone():
@@ -150,6 +233,26 @@ def vendasFone(idfone):
     conn.commit()
     conn.close()
     return redirect('/fones')
+
+# Fone Cadastro
+@app.route('/add_fone', methods=['POST'])
+def add_fone():
+    modelo = request.form['modelo']
+    marca = request.form['marca']
+    tipo = request.form['tipo']
+    img = request.form['img']
+    preco = request.form['preco']
+    qtd = request.form['qtd']
+
+    conn = sqlite3.connect(TEMP_DB_PATH)
+    cur = conn.cursor()
+    cur.execute('''
+            INSERT INTO fone (modelo, marca, tipo, img, preco, qtd) VALUES (?,?,?,?,?,?)
+        ''', (modelo, marca, tipo, img, preco, qtd,))
+    
+    conn.commit()
+    conn.close()
+    return redirect('/cadastro')
 
 # Compra Pelicula
 @app.route('/compraPelicula/<int:id>')

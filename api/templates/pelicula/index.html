@@ -20,13 +20,14 @@
       <li><a href="{{url_for('capa')}}">Capas</a>
       <li><a href="{{url_for('fone')}}">Fones</a>
       <li><a href="{{url_for('carregador')}}">Carregadores</a>
-      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a>   
+      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a>  
+      <li><a href="{{url_for('cadastro')}}">Cadastrar</a> 
     </ul>
   </header>
   <main class="produtos">
     {% for row in pelicula %}
       <div class="produtos__item">
-        <img src=../../static/img/{{row[3]}}  alt="imagem">
+        <img src={{row[3]}}  alt="imagem">
         <h2>Pelicula para {{row[1]}}</h2>
         <div class="produtos__item__dados">
           <p>Tipo: {{row[2]}}</p>

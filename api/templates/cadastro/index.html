@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo/logo.png')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+  <title>CellShop</title>
+</head>
+<body>
+  <header class="cabecalho">
+    <a href="{{url_for('index')}}" class="cabecalho__logo">
+      <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    </a>
+    <ul class="cabecalho__links">
+      <li><a href="{{url_for('index')}}">Home</a>
+      <li><a href="{{url_for('pelicula')}}">Peliculas</a>
+      <li><a href="{{url_for('capa')}}">Capas</a>
+      <li><a href="{{url_for('fone')}}">Fones</a>
+      <li><a href="{{url_for('carregador')}}">Carregadores</a>
+      <li><a href="{{url_for('cabo_adaptador')}}">Cabos e Adaptadores</a> 
+      <li><a href="{{url_for('cadastro')}}" style="color: var(--cor-quartenaria);">Cadastrar</a> 
+    </ul>
+  </header>
+  <main class="cadastro">
+    <fieldset>
+      <legend>Cadastar Produto: Pelicula</legend>
+      <form action="{{url_for('add_pelicula')}}" method="post" class="form">
+        <input type="text" name="modelo" placeholder="Modelo" id="modelo">
+        <input type="text" name="tipo" placeholder="Tipo" id="tipo">
+        <input type="text" name="img" placeholder="Imagem (link)" id="img"> 
+        <input type="number" name="preco" placeholder="Preço (R$)" id="preco"> 
+        <input type="number" name="qtd" placeholder="Quantidade" id="qtd"> 
+        <input type="submit" value="Cadastar">
+      </form>
+    </fieldset>
+
+    <fieldset>
+      <legend>Cadastar Produto: Capa</legend>
+      <form action="{{url_for('add_capa')}}" method="post" class="form">
+        <input type="text" name="modelo" placeholder="Modelo" id="modelo">
+        <input type="text" name="cor" placeholder="Cor" id="cor">
+        <input type="text" name="material" placeholder="Material" id="material">
+        <input type="text" name="img" placeholder="Imagem (link)" id="img"> 
+        <input type="number" name="preco" placeholder="Preço (R$)" id="preco"> 
+        <input type="number" name="qtd" placeholder="Quantidade" id="qtd"> 
+        <input type="submit" value="Cadastar">
+      </form>
+    </fieldset>
+
+    <fieldset>
+      <legend>Cadastar Produto: Fone</legend>
+      <form action="{{url_for('add_fone')}}" method="post" class="form">
+        <input type="text" name="modelo" placeholder="Modelo" id="modelo">
+        <input type="text" name="marca" placeholder="Marca" id="marca">
+        <input type="text" name="tipo" placeholder="Tipo" id="tipo">
+        <input type="text" name="img" placeholder="Imagem (link)" id="img"> 
+        <input type="number" name="preco" placeholder="Preço (R$)" id="preco"> 
+        <input type="number" name="qtd" placeholder="Quantidade" id="qtd"> 
+        <input type="submit" value="Cadastar">
+      </form>
+    </fieldset>
+
+    <fieldset>
+      <legend>Cadastar Produto: Carregador</legend>
+      <form action="{{url_for('add_carregador')}}" method="post" class="form">
+        <input type="text" name="cor" placeholder="cor" id="cor">
+        <input type="text" name="tipo" placeholder="Tipo" id="tipo">
+        <input type="text" name="img" placeholder="Imagem (link)" id="img"> 
+        <input type="number" name="preco" placeholder="Preço (R$)" id="preco"> 
+        <input type="number" name="qtd" placeholder="Quantidade" id="qtd"> 
+        <input type="submit" value="Cadastar">
+      </form>
+    </fieldset>
+
+    <fieldset>
+      <legend>Cadastar Produto: Cabo_adaptador</legend>
+      <form action="{{url_for('add_cabos_adaptador')}}" method="post" class="form">
+        <input type="text" name="entrada" placeholder="Entrada" id="entrada">
+        <input type="text" name="saida" placeholder="Saida" id="saida">
+        <input type="text" name="tipo" placeholder="Tipo" id="tipo">
+        <input type="text" name="img" placeholder="Imagem (link)" id="img"> 
+        <input type="number" name="preco" placeholder="Preço (R$)" id="preco"> 
+        <input type="number" name="qtd" placeholder="Quantidade" id="qtd"> 
+        <input type="submit" value="Cadastar">
+      </form>
+    </fieldset>
+  </main>
+  <footer class="rodape">
+    <p>Todos os direitos reservados á CellShop @2024-2025</p>
+    <a href="{{url_for('index')}}" class="cabecalho__logo">
+      <img class="cabecalho__logo__imagem" src="{{url_for('static', filename='img/logo/logo.png')}}" alt="Logo da Cell Shop" />
+    </a>
+    <p>Agradecemos á preferencia!</p>
+  </footer>
+
+</body>
+</html>
